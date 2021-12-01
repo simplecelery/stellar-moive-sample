@@ -39,7 +39,7 @@ class myplugin(StellarPlayer.IStellarPlayerPlugin, Plugin):
         category_items = []
         categories = map(lambda x: f'[{x}]' if x == self.current_category else x, ['全部'] + list(self.categories))
         for cat in categories:
-            category_items.append({'type':'link','name':cat, 'fontSize':20, '@click':'onCategoryClick', 'width':60})
+            category_items.append({'type':'link','name':cat, 'fontSize':15, '@click':'onCategoryClick', 'width':60})
 
         grid_layout = {'group':
                             [
