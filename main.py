@@ -15,9 +15,6 @@ class myplugin(StellarPlayer.IStellarPlayerPlugin, Plugin):
         self.detail = None
         self.play_list = []
         
-        print(self.data)
-        print(self.categories)
-        
     @property
     def movies(self):
         # to dict
@@ -27,6 +24,9 @@ class myplugin(StellarPlayer.IStellarPlayerPlugin, Plugin):
         return super().stop()
 
     def start(self):
+        self.load_data_from_local()
+        print(self.data)
+        print(self.categories)
         return super().start()
 
     def makeLayout(self):

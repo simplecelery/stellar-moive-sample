@@ -8,8 +8,7 @@ PAGE_SIZE = 18
 class Plugin:
     def __init__(self):
         self.categories = set()
-        data_path = os.path.join(os.path.dirname(__file__), 'data.csv')
-        self.data = list(self.load_data(self.read_file(data_path)))   
+        self.data = []
         self.q = ''
         self.current_category = '全部'
         self.page = 1         
@@ -40,6 +39,10 @@ class Plugin:
                         sname, url, *_ = items
                     sources.append((sname, url))
             yield name, cover, summary, category, sources
+
+    def load_data_from_local(self):
+        data_path = os.path.join(os.path.dirname(__file__), 'data.csv')
+        self.data = list(self.load_data(self.read_file(data_path)))   
 
     @property
     def filtered_data(self):
